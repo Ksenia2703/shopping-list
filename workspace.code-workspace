@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "..\\..\\..\\..\\..\\verstka\\new_project\\solo_u"
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\verstka\\new_project\\js"
+	},
+	{
+		"path": "..\\задание 17 - события часть 2"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "js"
+  }
+}
