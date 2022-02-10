@@ -21,7 +21,7 @@ const errorPrice = document.getElementById('error-price');
 
 
 const overlay = document.getElementById('overlay');
-const addendum = document.getElementById('addendum');
+const addСlick = document.getElementById('addСlick');
 const addModalWindow = document.getElementById('modalParameters');
 const replaceWithSave = document.getElementById('dobav');
 
@@ -29,7 +29,7 @@ const product = document.getElementById('product');
 const quantity = document.getElementById('quantity');
 const price = document.getElementById('price');
 
-addendum.addEventListener('click', () => {
+addСlick.addEventListener('click', () => {
     // addModalWindow.classList.remove('d-none');
     addModalWindow.classList.add('md-show');
     overlay.classList.remove('d-none');
@@ -70,14 +70,17 @@ addModalWindow.addEventListener('click', (e) => {
         let fields = 
         [
             {
+                'name':'product',
                 'field':product,
                 'error':errorProduct
             },
             {
+                'name':'quantity',
                 'field':quantity,
                 'error':errorQuantity
             },
             {
+                'name':'price',
                 'field':price,
                 'error':errorPrice
             }
@@ -85,8 +88,8 @@ addModalWindow.addEventListener('click', (e) => {
 
         let countErrors = 0;
         fields.forEach(function(el) {
-            if (el['field'].value === '') {
-                el['error'].classList.remove('d-none');
+            if ((el['name'] !== 'product' && +el['field'].value < 1) || el['field'].value === '') {
+                el['error'].classList.remove('d-none'); 
                 countErrors++;
             } else {
                 el['error'].classList.add('d-none');
@@ -235,6 +238,8 @@ tableBody.addEventListener('click', function(e) {
     if (span.className === 'td-hov1') {
         //если соответствует то находим его родителя и добавляем родителю нужный класс
         tr.classList.add('str-stile')
+        tr.classList.add('strikeout')
+        span.classList.add('hidden')
         // console.log(e.target.parentNode.parentNode);
     }
 
@@ -278,7 +283,6 @@ tableBody.addEventListener('click', function(e) {
         initialPrice = price.value;
     }
 });
-
 
 myModal.addEventListener('click', (e) => {
     let сrossDiv = e.target;
